@@ -1,0 +1,10 @@
+h2 {
+ border: 2px solid black;
+ width: 96%;
+ background-color:blue;
+ color: white;
+ padding: 20px 26px;
+ flex-grow: 1;
+ display: flex;
+ justify-content: space-between;
+}

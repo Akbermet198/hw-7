@@ -1,0 +1,39 @@
+.all-items {
+ border: 2px solid white;
+ display: flex;
+ padding: 10px 20px;
+ margin: 10px;
+ width: 52%;
+ 
+ align-items: center;
+ position: relative;
+ margin: 9px;
+ border-radius: 9px;
+ left: 300px;
+ border: 2px solid black;
+ box-shadow: 4px;
+}
+img {
+ width: 150px;
+  
+ position: relative;
+ right: 29px;
+ border-radius: 9px 0 0 9px;
+}
+.btns {
+ text-align: start;
+ position: relative;
+ bottom: 20px;
+}
+.items {
+ width: 340px;
+ display: flex;
+ justify-content: space-between;
+}
+Button {
+ border: none;
+ width: 90px;
+ height: 30px;
+ color: white;
+ border-radius: 10px;
+}
