@@ -1,63 +1,56 @@
 import React from "react";
-import { useState } from "react";
+import styled from "styled-components";
+ 
 
-import Button from "../btn";
-import { StyledInnerDiv } from "../header/header";
-import { Modal } from "../Modal/Modal";
 
-import "./main.css";
+import { Movie } from "../MovieItem/Movie";
+ 
 
 const MainContent = (props) => {
   const movieListDefault = props.movieList;
 
-  const [queryModal, setqueryModal] = useState(false);
-
-  const queryHandler = (event) => {
-    event.preventDefault();
-    setqueryModal((prevState) => !prevState);
-  };
-  /* deleteHandler(index) */
+ 
   const deleteHandler = (id) => {
-    
-    const newMovies = movieListDefault.filter((element ) => {
-      return   id !== element.id
+   
+    const newMovies = movieListDefault.filter((element) => {
+      return id !== element.id;
     });
     props.onNewMovieAdd(newMovies);
-    setqueryModal(false);
+    
     return newMovies;
   };
 
+
+
   return (
-    <div>
-      {movieListDefault.map((e  ) => {
+    <MainDiv>
+      {movieListDefault.map((e) => {
         return (
-          <div className="all-items">
-            {queryModal ? (
-              <Modal>
-                <StyledInnerDiv>
-                   
-                  <button onClick={()=> deleteHandler(e.id)} >АХАХА</button>
-                </StyledInnerDiv>
-              </Modal>
-            ) : null}
-            <img src={e.img} alt="" />
-            <div className="btns">
-              <h3>{e.title}</h3>
-              <div className="items">
-                <Button
-                  title={"4/5 stars"}
-                  color="rgb(231,125,59)"
-                  borderRadius="20px"
-                />
-                <Button title={"DELETE"} color="blue" onClick={queryHandler} />
-                <Button title={"EDIT"} color="blue" />
-              </div>
-            </div>
-          </div>
-        );
+          <Movie
+
+          onConfirm={deleteHandler}
+          key={e.title}
+          title={e.title}
+          url={e.img}
+          rating={e.rating}
+          id={e.id}
+          
+          />
+        )
       })}
-    </div>
+    </MainDiv>
   );
 };
 
 export default MainContent;
+
+const MainDiv = styled.div`
+width: 60vw;
+margin: 0 auto;
+`
+
+ export const RowDiv = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+`

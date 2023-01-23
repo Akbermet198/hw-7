@@ -12,7 +12,7 @@ const moviesDefault = [
   },
   {
     id: 2,
-    title: "Kunfu panda",
+    title: "Kung-fu panda",
     rating: 5,
     img: "https://m.media-amazon.com/images/M/MV5BODJkZTZhMWItMDI3Yy00ZWZlLTk4NjQtOTI1ZjU5NjBjZTVjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_FMjpg_UX1000_.jpg",
   },

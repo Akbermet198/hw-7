@@ -1,15 +1,22 @@
 import { createPortal } from "react-dom";
 import styled from "styled-components";
- 
 
-export const Modal = ({onClose, onSaveHandler,titleInputRef,urlInputRef,ratingInputRef, children }) => {
+export const Modal = ({
+  onClose,
+  onSaveHandler,
+  titleInputRef,
+  urlInputRef,
+  ratingInputRef,
+  height,
+  children,
+}) => {
   return (
     <>
       {createPortal(
         <>
           {" "}
           <Backdrop onClick={onClose} />
-          <StyledDiv>{children}</StyledDiv>
+          <StyledDiv style={{ height: height }}>{children}</StyledDiv>
         </>,
         document.getElementById("backdrop")
       )}
@@ -20,8 +27,7 @@ export const Modal = ({onClose, onSaveHandler,titleInputRef,urlInputRef,ratingIn
 const StyledDiv = styled.div`
   background-color: white;
   width: 400px;
-  height: 300px;
-  position: absolute;
+  position: fixed;
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
@@ -34,14 +40,23 @@ const StyledDiv = styled.div`
   justify-content: space-between;
 `;
 
-
 const Backdrop = styled.div`
   width: 100vw;
   height: 100vh;
-  top: 0;
-  left: 0;
+  
   background-color: black;
-  opacity: 0.9;
-  position: absolute;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 0;
+  left: 0;
   z-index: 4;
+`;
+
+export const StyledModalDiv = styled.div`
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
